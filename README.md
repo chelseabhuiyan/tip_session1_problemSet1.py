@@ -1,6 +1,6 @@
 # tip_session1_problemSet1.py
-Problem Set Version 1
-Problem 1: Hello World!
+# Problem Set Version 1
+## Problem 1: Hello World!
 Given the following lines of code, work with your group members to place the lines in order and write and call your first Python function!
 
 a. print("Hello world!")
@@ -9,7 +9,7 @@ c. hello_world()
 
 💡 Hint: Functions
 
-Problem 2: Today's Mood
+## Problem 2: Today's Mood
 The following function uses a variable, mood to print out "Today's mood: 😎". Copy this code to your Replit and update the mood variable to print out your mood for today.
 
 def todays_mood():
@@ -22,7 +22,7 @@ Example Output: Today's mood: 🥱
 
 💡 Hint: Variables
 
-Problem 3: Lunch Menu
+## Problem 3: Lunch Menu
 The following function accepts one parameter menu. Copy this code to your Replit and add a function call so that "Lunch today is: 🍕" is printed to the console.
 
 def print_menu(menu):
