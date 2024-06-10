@@ -1,0 +1,137 @@
+#Problem 1:
+def hello_world():  #def is used to define a function
+  print("Hello world!")
+
+hello_world() #calls function
+
+#Problem 2:
+def todays_mood():
+    mood = "😔" #this is where you update the variable for mood
+    print("Today's mood: " + mood)
+
+todays_mood()
+
+#Problem 3:
+def print_menu(menu):
+  print("Lunch today is: " + menu)
+
+menu="🍕"
+print_menu(menu)
+
+#Problem 4
+def sum(a, b):
+  c= (a + b)  #calculate sum of a and b and save it as variale c
+  print(2*c) #double the calculated sum
+
+a=20
+b=8
+sum(a,b)
+
+#Problem 5
+def product(a, b):
+  print (a*b) #print would be printing the result.
+  #Return will calculate it without printing
+
+a=20
+b=8
+product(a,b)
+
+#Problem 6
+def classify_age(age):
+  if age<18:
+    output= "child"
+  else:
+    output= "adult"
+  return output
+print (classify_age(2))
+
+#another way
+def classify_age(age):
+  output = "child" if age < 18 else "adult"
+  return output
+print (classify_age(22))
+
+#Problem 7
+def what_time_is_it(hour):
+  if hour==2: # == sets a varibale to a integer value
+    return "taco time 🌮"
+  elif hour==12:
+    return "peanut butter jelly time 🥪"
+  else:
+    return "nap time 😴"
+
+print (what_time_is_it(7))
+
+#Problem 8
+def blackjack(score):
+  if score==21:
+    print ("Blackjack!")
+  elif score>21:
+    print ("Bust!")
+  elif (score>=17 and score<21):
+    print ("Nice hand!")
+  elif score<17:
+    print ("Hit me!")
+
+
+blackjack(10)
+
+#Problem 9
+def get_first(list):
+  if len(list)==0: #see if list length is 0 meaning empty
+    return None
+  else:
+    return list[0] #first item is index 0
+
+print (get_first([3,1,6,7,5]))
+
+#Problem 10
+def get_first(list):
+  if len(list)==0: #see if list length is 0 meaning empty
+    return None
+  else:
+    return list[-1] #last item is index -1
+
+print (get_first([3,1,6,7,5]))
+
+#Problem 11
+def counter(stop):
+  for i in range (1, stop+1):
+    print (i)
+
+counter (7)
+
+#Problem 12
+def sum_ten():
+  output=0 #initalize accumilator variable
+  for i in range(1,11): #loop from 1 to 10 inclusively
+    output+=i  #add cureent nUmber to output
+  print (output)
+
+output=(sum_ten())
+
+#Problem 13
+def sum_positive_range(stop):
+  sum=0
+  for i in range (1,stop+1):
+    sum+=i
+  print (sum)
+
+sum_positive_range(6)
+
+#Problem 14
+def sum_range(start, stop):
+  sum=0
+  for i in range (start, stop+1):
+    sum+=i
+  print (sum)
+
+sum_range(3,9)
+
+#Problem 15
+def print_negetive(lst):
+  for i in lst:
+    if i<0:
+      print (i)
+
+print_negetive([3,-2,2,1,-5])
