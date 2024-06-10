@@ -1,137 +1,168 @@
-#Problem 1:
-def hello_world():  #def is used to define a function
-  print("Hello world!")
+# PROBLEM 1
+#Undertsand-
+# We are given two list of integers as parameters. We are # # determining is the second list, sequence is a subsequence
+# of the second list, lst. Meaning if the integers in the
+# first  list is in the same order they appear on the 
+# second list. In the example givem we can see that in the # second list, the numbers 1,6,-1,and  10 appear in that 
+# order in the first list
+# What happens when the list is empty?
+# Does the time complexity of how you find out if they match matter? not really for this problem even though we 
+# would want the fastest sort. 
+#Match: this is a list problem
 
-hello_world() #calls function
+#Plan:
+#  check if the value in the first index in list sequence 
+#  is in lst
+#  if true then check if value of second index in sequence # is in lst if thats true keep going or else return false
+# if false return false
 
-#Problem 2:
-def todays_mood():
-    mood = "😔" #this is where you update the variable for mood
-    print("Today's mood: " + mood)
+#Implement: 
+def is_subsequence(lst, sequence):
+  for i in range(len(sequence)):
+    if (sequence[i] in lst):
+      return True
+    else:
+      return False
 
-todays_mood()
 
-#Problem 3:
-def print_menu(menu):
-  print("Lunch today is: " + menu)
+#another way to do it 
+def is_subsequence(lst, sequence):
+  j = 0
+  for i in range(len(lst)):
+    if j < len(sequence) and lst[i] == sequence[j]:
+      j += 1
+  return j == len(sequence)
 
-menu="🍕"
-print_menu(menu)
+lst = [5, 1, 22, 25, 6, -1, 8, 10]
+sequence = [1, 6, -1, 10]
+print(is_subsequence(lst, sequence))
 
-#Problem 4
-def sum(a, b):
-  c= (a + b)  #calculate sum of a and b and save it as variale c
-  print(2*c) #double the calculated sum
+# PROBLEM 2
+#Understand-
+#The function create_dictionary takes two parameters of lists, keys and values
+#retuns a dictionary where each item from the key list is paired with the corresponding item in values
+# Assuming that both list are same size
+#Assume that key [i] matched with value[i]
 
-a=20
-b=8
-sum(a,b)
+#Match: Creating Dictionary Problem
 
-#Problem 5
-def product(a, b):
-  print (a*b) #print would be printing the result.
-  #Return will calculate it without printing
+#Plan:
+# take the string in the first list and put it with the first item in the second list 
+# repeat while 0<=i<= len(keys)
 
-a=20
-b=8
-product(a,b)
-
-#Problem 6
-def classify_age(age):
-  if age<18:
-    output= "child"
-  else:
-    output= "adult"
-  return output
-print (classify_age(2))
+#Implement:
+def create_dictionary(keys, values):
+  dictionary = {}
+  for i in range(len(keys)):
+      dictionary[keys[i]] = values[i]
+  print(dictionary)
 
 #another way
-def classify_age(age):
-  output = "child" if age < 18 else "adult"
-  return output
-print (classify_age(22))
+def create_dictionary(keys, values):
+  dictionary = {keys[i]: values[i] for i in range(len(keys))}
+  print(dictionary)
 
-#Problem 7
-def what_time_is_it(hour):
-  if hour==2: # == sets a varibale to a integer value
-    return "taco time 🌮"
-  elif hour==12:
-    return "peanut butter jelly time 🥪"
+#another way The zip() function can be used to pair the elements of the two lists together, and the dict() function can convert these pairs into a dictionary.
+def create_dictionary(keys, values):
+  dictionary = dict(zip(keys, values))
+  print(dictionary)
+
+keys = ["peanut", "dragon", "star", "pop", "space"]
+values = ["butter", "fly", "fish", "corn", "ship"]
+create_dictionary(keys, values)
+# PROBLEM 3
+#Understand:
+# The function takes a dictionary and a key called target as parameters. It looks for the key and when found prints the key and the value corresponding to it.
+# it prints in this format "Key: <key>" followed by "Value: <value>"
+#if key not in the dictioanry it prints "That pair does not exist!"
+
+#Match: Accessing values in dictionary problem
+#Plan:
+# check each of the keys in the dictionary for the target. 
+# if they are found return the key:target  and value:
+# if not found then print "That pair does not exist!"
+
+#Implement:
+def print_pair(dictionary, target):
+  if target in dictionary:
+    print("Key:" + target) #print(f"Key: {target}")
+    print("Value:"+ dictionary[target]) #print(f"Value: {dictionary[target]}")
   else:
-    return "nap time 😴"
-
-print (what_time_is_it(7))
-
-#Problem 8
-def blackjack(score):
-  if score==21:
-    print ("Blackjack!")
-  elif score>21:
-    print ("Bust!")
-  elif (score>=17 and score<21):
-    print ("Nice hand!")
-  elif score<17:
-    print ("Hit me!")
+    print("That pair does not exist!")
 
 
-blackjack(10)
+dictionary = {"spongebob": "squarepants", "patrick": "star", "squidward": "tentacles"}
+print_pair(dictionary, "patrick")
+print_pair(dictionary, "plankton")
+print_pair(dictionary, "spongebob")
+# PROBLEM 4
+#Understand:
+# The paramter is a dictionary whose key and values are integers. It find the sum of all the keys in dictionary and sum of all values in dictionary
+# if the sum of key> sum of values return "keys"
+# if sum of values > keys return "values"
+# if sum is equal return "balanced"
 
-#Problem 9
-def get_first(list):
-  if len(list)==0: #see if list length is 0 meaning empty
-    return None
+#Match: Accessing keys value pair of dictionary and doing operation on them
+#Plan:
+# find sum_keys of all the keys in dictionary 
+#find sum_values of all the values in dictionary 
+#if sum_values=sum_keys print "balanced"
+# elif sum_keys> sum_values print "keys"
+#else: print"values"
+
+#Implement: 
+def keys_v_values(dictionary):
+  keys = dictionary.keys() #extract all keys
+  values= dictionary.values() #extract all values
+  sum_keys= sum(keys) #sum of all keys
+  sum_values= sum(values) #sum of all values
+  if sum_values==sum_keys:
+    return "balanced"
+  elif sum_keys>sum_values:
+    return "keys"
   else:
-    return list[0] #first item is index 0
+    return "values"
 
-print (get_first([3,1,6,7,5]))
+dictionary1 = {1:10, 2:20, 3:30, 4:40, 5:50, 6:60}
+greater_sum = keys_v_values(dictionary1)
+print(greater_sum)
 
-#Problem 10
-def get_first(list):
-  if len(list)==0: #see if list length is 0 meaning empty
-    return None
-  else:
-    return list[-1] #last item is index -1
+dictionary2 = {100:10, 200:20, 300:30, 400:40, 500:50, 600:60}
+greater_sum = keys_v_values(dictionary2)
+print(greater_sum)
 
-print (get_first([3,1,6,7,5]))
+# PROBLEM 5
+#Understand:
+#function updates inventory dictionary and accepts two parameters. one is the current_inventory  where the key-value of  item and quanity of current stock in inventory 
+# and another is restock_list. which is key-value pair of item and quanity needed to be added
+#If item not in current_inventory list but is in restock_list it is added and fucntion returns the updated current_inventory list
+# what if the item exists in current_inventory but the value is different is it still updated or added? add it to curent value
 
-#Problem 11
-def counter(stop):
-  for i in range (1, stop+1):
-    print (i)
+#Match:adding to dictionary 
+#Plan:
+# for each key in restock_list check if there is a key in current_inventory that matches
+# if there isn't adding that key: value to the end of dictionary and return new current_inventory
+# if key exists add the curent value to restocklist value and return updated new current_inventory
 
-counter (7)
+#Implemention:
+def restock_inventory(current_inventory, restock_list):
+    for item, quantity in restock_list.items():
+      if item in current_inventory:
+        current_inventory[item] += quantity
+      else:
+        current_inventory[item] = quantity
+    return current_inventory
 
-#Problem 12
-def sum_ten():
-  output=0 #initalize accumilator variable
-  for i in range(1,11): #loop from 1 to 10 inclusively
-    output+=i  #add cureent nUmber to output
-  print (output)
+current_inventory = {
+  "apples": 30,
+  "bananas": 15,
+  "oranges": 10
+}
 
-output=(sum_ten())
+restock_list = {
+  "oranges": 20,
+  "apples": 10,
+  "pears": 5
+}
 
-#Problem 13
-def sum_positive_range(stop):
-  sum=0
-  for i in range (1,stop+1):
-    sum+=i
-  print (sum)
-
-sum_positive_range(6)
-
-#Problem 14
-def sum_range(start, stop):
-  sum=0
-  for i in range (start, stop+1):
-    sum+=i
-  print (sum)
-
-sum_range(3,9)
-
-#Problem 15
-def print_negetive(lst):
-  for i in lst:
-    if i<0:
-      print (i)
-
-print_negetive([3,-2,2,1,-5])
+print("current_inventory:", restock_inventory(current_inventory, restock_list))
