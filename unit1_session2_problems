@@ -1,0 +1,68 @@
+# PROBLEM 1
+#Understand :
+#Given the fucntion, print_list() with paramenter lst. 
+#We need to complete the fucntion so that it prints out all the elements in the list.
+
+#1. Should the function use a for loop or a while loop to iterate through the list elements?
+#2. What should the function do if the list is empty?
+
+#Match : This problem iterates over elements in a list and performing an operation on each element. 
+
+#Plan :
+# Define fucntion with lst as parameter (given)
+#use a for loop to iterate over the elements in the list
+#inside for loop, print each element
+#Test cases: (given)
+#lst = ["squirtle", "gengar", "charizard", "pikachu"]
+
+#Implementation: 
+def print_list(lst):
+  for i in lst:
+    print (i)
+
+lst = ["squirtle", "gengar", "charizard", "pikachu"]
+print_list(lst)
+
+# PROBLEM 2
+#Understand:
+#1. How do you iterate through the list?
+#2. What do you do with each element?
+
+#Match: Similar to problem 1, we are iterating over elements in a list and performing an operation on each element. 
+#Here we are multiplying by 2
+
+#Plan:
+#1.Define fucntion with parameter lst (given)
+#2. for each element in lst 
+#3. inside for loop, print each element multiplied by 2 
+
+#Implementation: 
+def doubled(lst):
+  for i in lst:
+    print (2*i)
+
+lst =[1,2,3]
+doubled(lst)
+
+#Problem 3: 
+def doubled(lst):
+  doubled_list = []  #initialize a new empty list
+  for i in lst:
+    doubled_list.append (2*i) #loop through each item in orignal list and double it and add it to the new list
+  return doubled_list
+
+lst = [1,2,3]
+new_lst = doubled(lst)
+print(new_lst)
+
+#Problem 4: 
+def flip_sign(lst):
+  return [-x for x in lst]
+
+lst = [1,-2,-3,4]
+flipped_lst = flip_sign(lst)
+print(flipped_lst)
+
+#Problem 5:
+def max_difference(lst):
+  
